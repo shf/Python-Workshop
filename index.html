@@ -1,0 +1,1128 @@
+﻿<!doctype html>
+
+<!--
+
+    Welcome to the light side of the source, young padawan.
+
+    One step closer to learn something interesting you are...
+
+                               ____                  
+                            _.' :  `._               
+                        .-.'`.  ;   .'`.-.           
+               __      / : ___\ ;  /___ ; \      __  
+             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
+             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
+                  `:-.._J '-.-'L__ `-.-' L_..-;'     
+                    "-.__ ;  .-"  "-.  : __.-"       
+                        L ' /.======.\ ' J           
+                         "-.   "__"   .-"            
+                        __.l"-:_JL_;-";.__           
+                     .-j/'.;  ;""""  / .'\"-.        
+                   .' /:`. "-.:     .-" .';  `.      
+                .-"  / ;  "-. "-..-" .-"  :    "-.   
+             .+"-.  : :      "-.__.-"      ;-._   \  
+             ; \  `.; ;                    : : "+. ; 
+             :  ;   ; ;                    : ;  : \: 
+             ;  :   ; :                    ;:   ;  : 
+            : \  ;  :  ;                  : ;  /  :: 
+            ;  ; :   ; :                  ;   :   ;: 
+            :  :  ;  :  ;                : :  ;  : ; 
+            ;\    :   ; :                ; ;     ; ; 
+            : `."-;   :  ;              :  ;    /  ; 
+             ;    -:   ; :              ;  : .-"   : 
+             :\     \  :  ;            : \.-"      : 
+              ;`.    \  ; :            ;.'_..-=  / ; 
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
+                    \ / .-"   /.     .'.' ;_:'    ;  
+                     :-""-.`./-.'     /    `.___.'   
+                           \ `t  ._  /               
+                            "-.t-._:'                
+
+-->
+
+<!--
+    
+    So you'd like to know how to use impress.js?
+    
+    You've made the first, very important step - you're reading the source code.
+    And that's how impress.js presentations are built - with HTML and CSS code.
+    
+    Believe me, you need quite decent HTML and CSS skills to be able to use impress.js effectively.
+    More importantly, you need to be a designer. There are no default styles or layouts for impress.js presentations.
+    
+    You need to design and build it by hand.
+    
+    So...
+    
+    Would you still like to know how to use impress.js?
+    
+-->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Python Workshop - Lets Enjoy Scientific Computing!</title>
+    
+    <meta name="description" content="A Python Workshop Presentation using Impress" />
+    <meta name="author" content="Shayan Fahimi" />
+	<script type="text/javascript" src="scripts/shCore.js"></script>
+	<script type="text/javascript" src="scripts/shBrushPython.js"></script>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <!--
+        
+        Impress.js doesn't depend on any external stylesheets. It adds all of the styles it needs for the
+        presentation to work.
+        
+        This style below contains styles only for demo presentation. Browse it to see how impress.js
+        classes are used to style presentation steps, or how to apply fallback styles, but I don't want
+        you to use them directly in your presentation.
+        
+        Be creative, build your own. We don't really want all impress.js presentations to look the same,
+        do we?
+        
+        When creating your own presentation get rid of this file. Start from scratch, it's fun!
+        
+    -->
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<!--
+    
+    Body element is used by impress.js to set some useful class names, that will allow you to detect
+    the support and state of the presentation in CSS or other scripts.
+    
+    First very useful class name is `impress-not-supported`. This class means, that browser doesn't
+    support features required by impress.js, so you should apply some fallback styles in your CSS.
+    It's not necessary to add it manually on this element. If the script detects that browser is not
+    good enough it will add this class, but keeping it in HTML means that users without JavaScript
+    will also get fallback styles.
+    
+    When impress.js script detects that browser supports all required features, this class name will
+    be removed.
+    
+    The class name on body element also depends on currently active presentation step. More details about
+    it can be found later, when `hint` element is being described.
+    
+-->
+<body class="impress-not-supported">
+
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    
+    Now that's the core element used by impress.js.
+    
+    That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
+    It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
+    
+    You probably won't need it now, but there are some configuration options that can be set on this element.
+    
+    To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
+    a number of ms. It defaults to 1000 (1s).
+    
+    You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
+    It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
+    If you are willing to change this value make sure you understand how CSS perspective works:
+    https://developer.mozilla.org/en/CSS/perspective
+    
+    But as I said, you won't need it for now, so don't worry - there are some simple but interesting things
+    right around the corner of this tag ;)
+    
+-->
+<div id="impress">
+
+    <!--
+        
+        Here is where interesting thing start to happen.
+        
+        Each step of the presentation should be an element inside the `#impress` with a class name
+        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+        the 'camera' shows them on each step of the presentation.
+        
+        Positioning information is passed through data attributes.
+        
+        In the example below we only specify x and y position of the step element with `data-x="-1000"`
+        and `data-y="-1500"` attributes. This means that **the center** of the element (yes, the center)
+        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'.
+        
+        It will not be rotated or scaled.
+        
+    -->
+    <div id="start" class="step" data-x="400" data-y="0" data-z = "0" data-scale="5.5">
+        <p style="font-size:95px; font-weight:bold; color:white" >Python Workshop</p>
+		<img src="Python.png" height = "100" align="right">
+		<br> </br>
+		<p style="font-size:30px; color:white;" >Let's Enjoy Scientific Computing!</p>
+		<p style="font-size:30px; color:white;" >A Workshop presented by: <b> Shayan Fahimi </b> </p>
+		
+    </div>
+
+    <!--
+        
+        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
+        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
+        
+        So in the example below it'll be `step-2`.
+        
+        The hash part of the url when this step is active will be `#/step-2`.
+        
+        You can also use `#step-2` in a link, to point directly to this particular step.
+        
+        Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
+        Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
+        
+    -->
+    <div id="titles" class="step slide" data-x="400" data-y="2000" data-z= "0" data-scale="2.5"> 
+			<div class="slide-header"> Contents </div>
+				<div class="slide-title">
+					<li>Get to Know Python! </li> 
+					<li>Spelling and Grammer </li>
+					<li>Group Power </li>
+					<li>Make It Your Own </li>
+					<li>Coding is Easier than Ever </li>
+				</div>
+	</div>
+
+    <div id="Introduction-1" class="step slide1" data-x="4000" data-y="-4000" data-z = "-5000">
+       <div class="slide-header"> Knowledge </div>
+	   <div class="slide-content">
+			<li> Declerative Knowledge : Statement of Facts </li>
+			<li class="tab" style="font-size:25px"> “The  square root of number x is a number y such that y*y = x” </li>
+			<li> Imperative knowledge : “how to” methods or recipes </li>
+			<li class="tab" style="font-size:25px"> Start  with a guess, called  g! </li>
+			<li class="tab" style="font-size:25px">If g*g is close enough to x, stop and say  that  g is  the answer. </li>	  
+			<li class="tab" style="font-size:25px">Otherwise  make  a  new  guess,  by  averaging  g and  x/g! </li>
+			<li class="tab" style="font-size:25px">Using  this  new  guess,  repeat  the  process  until  we  get close  enough </li>			
+		<p> Algorithms are recipes.</p>
+		</div>
+	</div>
+	
+	<div id="Introduction-2" class="step slide1" data-x="5000" data-y="-4000" data-z="-5000">
+        <div class="slide-header2"> A Basic Machine Structure </div>
+		<div class="slide-content">
+		<br> </br>
+		<img src="Basic_Machine.png" height = "300" align="left">
+		<p> Turing  showed  that  using  six  primitives, can compute anything. </p>
+		<p> Modern programming languages have more convenient set of primitives. </p>
+		</div>
+	</div>
+
+	<div id="Introduction-3" class="step slide1" data-x="6000" data-y="-4000" data-z="-5000">
+        <div class="slide-header2"> Options for Programming Languages </div>
+		<div class="slide-content">
+			<br> </br>
+			<img src="Programming_Lang.png" height = "200" align="middle"> 
+		</div>
+    </div>
+
+	<div id="Introduction-4" class="step slide1" data-x="7000" data-y="-4000" data-z="-5000" >
+        <div class="slide-header2"> Low Level Languages </div>
+		<div class="slide-content">
+			<br> </br>
+			<img src="Low_Level.png" height = "100" align="middle">
+			<br> </br>
+			<p> Similar Instructions  to internal control unit. </p>
+				<li class="tab"> Move data from one location to another </li>
+				<li class="tab"> Execute a simple ALU operation </li>
+			<p> Very low level programming </p>
+		</div>
+    </div>
+
+	<div id="Introduction-5" class="step slide1" data-x="7000" data-y="-3000" data-z="-5000">
+        <div class="slide-header2"> High Level Languages </div>
+		<div class="slide-content">
+			<p> Compiler Languages: </p>
+			<img src="HighLevel_Comp.png" height = "220" align="middle">
+			<p> Interpreter Languages: </p>
+			<img src="HighLevel_Inter.png" height = "100" align="middle">	
+		</div>
+	</div>
+	
+	<div id="History" class="step slide1" data-x="6000" data-y="-3000" data-z="-5000">
+        <div class="slide-header2"> History of Python </div>
+		<div class="slide-content">
+			<li>Python was conceived in the late 1980s. </li>
+			<li>Its implementation was started in December 1989 by Guido van Rossum. </li>
+			<li>Python 2.0 was released on 16 October 2000, with many major new features including support for unicode. </li>
+			<li>Python 3.0, a major, backwards-incompatible release, was released on 3 December 2008 after a long period of testing </li>
+		<center><video width="320" height="240" controls>
+			<source src="Guido van Rossum Welcome to Python Programming.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video></center>
+		</div>
+    </div>
+	
+	<div id="Introduction-7" class="step slide1" data-x="5000" data-y="-3000" data-z="-5000">
+        <div class="slide-header2"> Why Python? </div>
+		<div class="slide-content">
+		<li> Holistic Language Design </li>
+ 		<li> Readability </li>
+		<li> Balance of High Level and Low Level Programming </li>
+		<li> Language Interoperability </li>
+		<li> Documentation System </li>
+		<li> Hierarchical Module System </li>
+		<li> Data Structures </li>
+		<li> Available Libraries </li>
+		<div class="substep"><center><b>
+		<p> But there are some Downsides!!! </p> </b></center></div>
+		</div>
+    </div>
+	
+	<div id="Introduction-8" class="step slide1" data-x="4000" data-y="-3000" data-z="-5000">
+        <div class="slide-header2"> What is created with Python? </div>
+		<div class="slide-content">
+		<p> Mainly programmed with Python: </p>
+		<img src="Logo-1.png" height = "200" align="right">
+		<li class="tab"> Bittorrent </li>
+		<li class="tab"> Deluge </li>
+		<li class="tab"> Dropbox </li>
+		<li class="tab"> Ubuntu Software Center </li>
+		<li class="tab"> Kivy </li>
+		<p> Embedded as a scripting language: </p>
+		<img src="Logo-2.png" height = "200" align="right">
+		<li class="tab"> Abaqus </li>
+		<li class="tab"> Autodesk Maya </li>
+		<li class="tab"> FreeCad </li>
+		<li class="tab"> Gedit </li>
+		<li class="tab"> MSC. Software (Adams, …) </li>
+		<li class="tab"> Notepad++ </li>
+		</div>
+    </div>
+	<div id="Introduction-9" class="step slide1" data-x="5500" data-y="-2000" data-z="-5000">
+        <div class="slide-header2"> Python IDE </div>
+		<div class="slide-content">
+		There are different python distributions which are based on the libraries that each of them has and the IDE:
+		<li class = "tab"> Sage  </li>
+		<li class = "tab"> PythonXY </li>
+		<li class = "tab"> <a href="https://www.enthought.com/downloads/"> Enthought Canopy </a> </li>
+		<li class = "tab"> <a href="https://store.continuum.io/cshop/anaconda/"> Anaconda </a> </li>
+		<center><img src="Logo-3.png" height = "300"></center>
+		</div>
+    </div>
+	
+<!--- NEXT PART -->
+
+	<div id="Syntax-1" class="step slide2" data-x="4000" data-y="1500" data-z = "-5000">
+       <div class="slide-header2">Spelling and Grammer</div>
+	   <div class="slide-content">
+	   <p> Python has a meaningful and easy to read Syntax </p>
+		<pre class="brush: py;">
+		>>>print("Hello World!")
+		>Hello World!</pre>
+		</div>
+    </div>
+    <div id="Syntax-2" class="step slide2" data-x="5000" data-y="1500" data-z = "-5000">
+       <div class="slide-header2"> Data Objects </div>
+	   <div class="slide-content">
+	   <p>Everything is Object! </p>
+	   <p> There are two groups of objects: </p>
+	   <li style="tab"> Scalar: can not be subdivided into simpler structures </li>
+	   <pre class="brush: py;">
+	   >>>type(3.0)
+	   >>>type(3)
+	   >>>type(True)</pre>
+	   <li style="tab"> Non-Scalar : have internal structure </li>
+	   <pre class="brush: py;">
+	   >>>type("salam")
+	   >>>type([1, 2, 3])</pre>
+	   </div>
+    </div>
+	
+	<div id="Syntax-3" class="step slide2" data-x="6000" data-y="1500" data-z="-5000">
+        <div class="slide-header2"> Slicing, Overloading and Casting </div>
+		<div class="slide-content">
+		<p> You can cast types of objects: </p>
+		<pre class="brush: py;">
+		>>>float(3)</pre>
+		<p> Many operators are overloaded: </p>
+		<pre class="brush: py;">
+		>>>print(3 * "a") 
+		>>>print("a" + "bc")</pre>
+		<p> Slicing is easier than ever: </p>
+		<pre class="brush: py;">
+		>>>'salam'[1:3]		
+		>>>'abc'[-1]
+		>>>'abc'[:]</pre> 
+		</div>
+    </div>
+
+	<div id="Syntax-4" class="step slide2" data-x="7000" data-y="1500" data-z="-5000">
+		<div class="slide-header2"> Basic Operators </div>
+		<div class="slide-content">
+			<li class = "tab">Arithmetic operators</li>
+			<pre class="brush: py;">
+			>>>k = 1.0 + (3.0**2.0) + 4.0 * 12.0		
+			>>>m = 3 % 2 + 3 / 2</pre> 
+			<li class = "tab">Comparison operators</li>
+			<pre class="brush: py;">
+			>>>k = (2 == 5)		
+			>>>m = (3 >= 7)</pre>
+			<li class = "tab">Boolean operators</li>
+			<pre class="brush: py;">
+			>>>k = True and not False		
+			>>>m = False or True</pre>
+			<p> The operators <i>in</i> and <i>not in</i> test for collection membership </p>
+		</div>
+    </div>
+
+	<div id="Syntax-5" class="step slide2" data-x="7000" data-y="2500" data-z="-5000">
+        <div class="slide-header2"> Conditional Statements </div>
+		<div class="slide-content">
+		<img src="Conditional.png" height = "300" align="right">
+		<p>The indentation denotes a block of instructions, this indentation provides a visual structure that reflects the semantic structure of the program.</p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		#My comments will be here!
+		if x%2 == 0:
+			if x%3 == 0:
+				print('Divisible by 2 and 3')
+			else:
+				print('Divisible by 2 and not by 3')
+		elif x%3 == 0:
+			print('Divisible by 3 and not by 2')</pre> </span>
+		</div>
+	</div>
+
+	<div id="Syntax-6" class="step slide2" data-x="6000" data-y="2500" data-z="-5000">
+        <div class="slide-header2">Iterations</div>
+		<div class="slide-content">
+		<img src="Iteration.png" height = "300" align="right">
+		<p>We can repeat a sequence	of steps multiple times based on some decision.</p>
+		<p>Leads to new classes of algorithms </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		x = 3
+		ans = 0
+		itersLeft = x
+		while (itersLeft != 0):
+			ans = ans + x
+			itersLeft = itersLeft – 1
+		print(str(x) + '*' + str(x) + ' = ' + str(ans))</pre> </span>
+		</div>
+		
+    </div>
+
+	<div id="Syntax-7" class="step slide2" data-x="5000" data-y="2500" data-z="-5000">
+        <div class="slide-header2">For Loops</div>
+		<div class="slide-content">
+		<p> A For loop is defined as follows: </p> 
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		for < identifier > in < sequence >:
+			< code block > </pre> </span>
+		<p> A sequence of Intergers for iteration can be generated by: </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		range(n) = [0, 1, 2, 3, …, n-1]
+		range(m,n) = [m, m+1, …, n-1]
+		xrange(n)</pre> </span>
+		</div>	
+    </div>
+	<div id="Syntax-8" class="step slide2" data-x="4000" data-y="2500" data-z="-5000">
+        <div class="slide-header2">Functions</div>
+		<div class="slide-content">
+		<p> Functions give us abstraction </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		def < function name > (< formal parameters >):
+			< function body > </pre> </span>
+		<p> A simple example: </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		def max(x, y):
+			if x > y:
+				return x
+			else:
+				return y</pre> </span>
+		<p> It can be invoked by: </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		>>>z = max(3, 4)</pre> </span>
+		</div>	
+    </div>
+	
+	<div id="Syntax-9" class="step slide2" data-x="4000" data-y="3500" data-z="-5000">
+        <div class="slide-header2">Modularity</div>
+		<div class="slide-content">
+		<p> All Functions and script can be considered as modules. </p>
+		<p> They can be imported separately or as a group. </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		pi = 3.14159
+
+		def area(radius):
+			return pi*(radius**2)
+
+		def circumference(radius):
+			return 2*pi*radius</pre> </span>
+		<p> Assume we save it as circle.py, then it can be imported by: </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		import cicle as crl
+		#OR
+		from  circle import area
+		#OR
+		from circle import *</pre> </span>
+		</div>	
+    </div>
+	<div id="Syntax-10" class="step slide2" data-x="5000" data-y="3500" data-z="-5000">
+        <div class="slide-header2">Recursion</div>
+		<div class="slide-content">
+		<p> Reduce a problem to a simpler version of the same problem: Recursive Step </p>
+		<p> Keep Reducing until reach a simple case that can be solved directly: Base Step. </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		def recurMul(a, b):
+			if b == 1:
+				return a
+			else:
+				return a + recurMul(a, b-1)</pre> </span>
+		<p> Global Variables:</p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		>>>global numCalls</pre> </span>
+		<p> Use with care!!!<p>
+		</div>	
+    </div>
+	<div id="Syntax-11" class="step slide2" data-x="6000" data-y="3500" data-z="-5000">
+        <div class="slide-header2">Exceptions</div>
+		<div class="slide-content">
+		<p> What if we hit an unexpected condition? </p>
+		<li class="tab">Trying to access beyond the limits of a list will raise an <i>IndexError</i></li>
+		<li class="tab">Trying to convert an inappropriate type will raise a <i>TypeError</i></li>
+		<li class="tab"> Referencing a non-existing variable will raise a <i> NameError </i></li>
+		<li class="tab"> Mixing data types without appropriate coercion will raise a <i> TypeError </i></li>
+		<p> What to do? </p>
+		<li class="tab"> Fail silently</li>
+		<li class="tab">Return an “error” value</li>
+		<li class="tab">Stop execution, signal error condition</li>
+		</div>	
+    </div>
+	<div id="Syntax-12" class="step slide2" data-x="7000" data-y="3500" data-z="-5000">
+        <div class="slide-header2">Dealing with Exceptions</div>
+		<div class="slide-content">
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		try:
+			f = open(‘grades.txt’)
+			# … code to read and process grades
+		except:
+			raise Exception('Can’t open grades file')</pre> </span>
+			
+		<p> The most General Form: </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		def divide(x, y):
+			try:
+				result = x / y
+			except ZeroDivisionError, e:
+				print "division by zero! " + str(e)
+			else:
+				print "result is", result
+			finally:
+				print "executing finally clause"</pre> </span>
+		</div>	
+    </div>
+	<!-- NEXT PART -->
+	
+	<div id="Compound-1" class="step slide3" data-x="-6000" data-y="-4500" data-z="-5000">
+        <div class="slide-header2">Group Power</div>
+		<div class="slide-content">
+		<p> One of the powerful characteristics of Python is its huge Data Types </p>
+		<li class="tab"> Tuples </li>
+		<li class="tab"> Lists </li>
+		<li class="tab"> Dictionaries </li>
+		<li class="tab"> Sets </li>
+		</div>
+    </div>
+	<div id="Compound-2" class="step slide3" data-x="-5000" data-y="-4230" data-z="-5000" data-rotate-z="30">
+        <div class="slide-header2">Tuples</div>
+		<div class="slide-content">
+		<p> Ordered Sequence of Elements </p>
+		<p> Elements can be (I think) anything: </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		t1 = (1, ‘two’, 3)
+		t2 = (t1, ‘four’) </pre> </span>
+		<p> Operations: </p>
+		<li class="tab"> Concatenation </li>
+		<li class="tab"> Indexing </li>
+		<li class="tab"> Slicing </li>
+		<li class="tab"> Singletons </li>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		print(t1+t2)
+		print((t1+t2)[3])
+		print((t1+t2)[2:5])
+		t3 = (‘five’,)</pre> </span>
+		</div>	
+    </div>
+	<div id="Compound-3" class="step slide3" data-x="-4268" data-y="-3500" data-z="-5000" data-rotate-z="60">
+        <div class="slide-header2">Manipulating Tuples</div>
+		<div class="slide-content">
+		<p> The Empty Tuple can be defined by: </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		divisors = ()</pre> </span>
+		<p> You can iterate over Tuples. </p>
+		<p> Tuples can not be changed after creation. </p>
+		<p> They are particularly good for keeping a set of known and fixed number of other data object, such as space coordinates. </p>
+		</div>		
+    </div>
+	<div id="Compound-4" class="step slide3" data-x="-4000" data-y="-2500" data-z="-5000" data-rotate-z="90">
+        <div class="slide-header2">Lists</div>
+		<div class="slide-content">
+		<p> A lot like Tuples.</p>
+		<li class="tab"> Ordered Sequence of Values, each identified by an index. </li>
+		<li class="tab"> Use Hard Brackets instead of Parentheses.</li>
+		<li class="tab"> Slicing </li>
+		<li class="tab"> Singletons are now just [4] rather than (4, )</li>
+		<div class="substep">
+		<p style="font-size:60px; font-weight:bold;" align="middle"> BUT </p>
+		<p style="font-weight:bold;" align="middle">Lists are Mutable! </p>
+		</div>
+		</div>	
+    </div>
+	<div id="Compound-5" class="step slide3" data-x="-4268" data-y="-1500" data-z="-5000" data-rotate-z="120">
+        <div class="slide-header2">Structure of Lists</div>
+		<div class="slide-content">
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		M = ['Ali', 'Shahab']
+		F = ['Marzie', 'Niloofar']
+		Name = [M, F]
+		Name1 = [['Ali', 'Shahab'],
+			['Marzie', 'Niloofar']]
+		M.append('MohammadReza')
+		print(Name)
+		Name=[['Ali', 'Shahab', 'MohammadReza'],
+			['Marzie', 'Niloofar']]
+		print(Name1)
+		Name1=[['Ali', 'Shahab'], ['Marzie', 'Niloofar']]</pre> </span>
+		<p>Elements in Name are not copies of the lists, they are the lists themselves. </p>
+		<p>We can also change elements directly:</p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		M[3]='Shayan'</pre> </span>
+		</div>	
+    </div>
+	<div id="Compound-6" class="step slide3" data-x="-5000" data-y="-770" data-z="-5000" data-rotate-z="150">
+        <div class="slide-header2">Operations on Lists</div>
+		<div class="slide-content">
+		<p>Lists are iteratable like Tuples and Strings. </p>
+		<p> Many operations can be performed on Lists: </p>
+		<li class="tab"> Appending </li>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		Name = M.append(F)
+		[['Ali', 'Shahab'], ['Marzie', 'Niloofar']]
+		</pre> </span>
+		<li class="tab"> Flattening </li>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		Name = M + F
+		['Ali', 'Shahab', 'Marzie', 'Niloofar']
+		</pre> </span>
+		<li class="tab"> Cloning </li>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		Name1 = Name[:]
+		</pre> </span>
+		</div>	
+    </div>
+	<div id="Compound-7" class="step slide3" data-x="-6000" data-y="-500" data-z="-5000" data-rotate-z="180">
+        <div class="slide-header2">Cloning</div>
+		<div class="slide-content">
+		<p> Avoid Mutating a list over which one is iterating.</p>
+		<p> It will result in errors or infinity loops. </p> 
+		<div class="substep">
+		<p style="font-size:40px; font-weight:bold;" align="middle"> WHY? </p>
+		<p align="middle">Inside for loops, Python keeps track of where it is in list using internal counter. Mutating changes the length, but do not update the counter. </p>
+		</div>
+		</div>	
+    </div>
+	<div id="Compound-8" class="step slide3" data-x="-7000" data-y="-770" data-z="-5000" data-rotate-z="210">
+        <div class="slide-header2">Dictionaries</div>
+		<div class="slide-content">
+		<p> Dict is generalization of lists.</p>
+		<p> Here, indices are refered to as Keys, having arbitrary form. </p>
+		<p> A Dict is a collection of < key, values >.</p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		 monthNumbers = { ‘Jan’:1, ‘Feb’:2, ‘Mar’:3,
+		 1:’Jan’, 2:’Feb’, 3:’Mar’} </pre> </span>
+		 <p> We can access Values by using Keys.</p>
+		 <span style="font-size: 25px">
+		<pre class="brush: py;">
+		 monthNumbers[‘Jan’]
+		monthNumbers[1] </pre> </span>
+		</div>	
+    </div>
+	<div id="Compound-9" class="step slide3" data-x="-7732" data-y="-1500" data-z="-5000" data-rotate-z="240">
+        <div class="slide-header2">Operations of Dicts</div>
+		<div class="slide-content">
+		<li class="tab"> Insertion: </li>
+		<li class="tab"> Iteration: </li>
+		<li class="tab"> keys() and values() method: </li>
+		 <span style="font-size: 25px">
+		<pre class="brush: py;">
+		monthNumbers[‘Apr’] = 4
+		collect = []
+		for e in monthNumbers:
+			collect.append(e)
+		[1, 2, 'Mar', 'Feb', 'Apr', 'Jan', 3]
+		monthNumbers.keys()
+		[1, 2, 'Mar', 'Feb', 'Apr', 'Jan', 3]</pre> </span>
+		<p> Keys can be another complex object such as Tuples. Keys must be immutable. </p>
+		</div>	
+    </div>
+	<div id="Compound-10" class="step slide3" data-x="-8000" data-y="-2500" data-z="-5000" data-rotate-z="270">
+        <div class="slide-header2">Sets</div>
+		<div class="slide-content">
+		<p> Sets are unordered lists with no duplicate entry. </p>
+		<p> They can be used to calculate differences and intersections. </p>
+		 <span style="font-size: 25px">
+		<pre class="brush: py;">
+		a = set(["Jake", "John", "Eric"])
+		b = set(["John", "Jill"])
+		a.intersection(b)
+		set(['John'])
+		a.difference(b)
+		set(['Jake', 'Eric'])
+		 a.union(b)
+		 set(['Jill', 'Jake', 'John', 'Eric'])</pre> </span>
+		</div>	
+    </div>
+	<div id="Compound-11" class="step slide3" data-x="-7732" data-y="-3500" data-z="-5000" data-rotate-z="300">
+        <div class="slide-header2">Functions as Objects</div>
+		<div class="slide-content">
+		<p> Functions are also Objects: </p>
+		<li class="tab"> They have types. </li>
+		<li class="tab"> They can be elements of data structures </li>
+		<li class="tab"> They can appear in expressions. </li>
+		<p> It will result in Higher order Programming. </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		def applyToEach(L, f):
+			for i in range(len(L)):
+				L[i] = f(L[i])
+		L = [1, -2, 3.4]
+		applyToEach(L, abs)
+		applyToEach(L, int)
+		applyToEach(L, fact)</pre></span>
+		</div>	
+    </div>
+	<div id="Compound-12" class="step slide3" data-x="-7000" data-y="-4230" data-z="-5000" data-rotate-z="330">
+        <div class="slide-header2">Generalization</div>
+		<div class="slide-content">
+		<p> Python provides	a general purpose HOP called map </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		map(abs, [1, -2, 3, -4])
+		[1, 2, 3, 4]</pre></span>
+		<p> Python supports the creation of anonymous functions </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		def f(x):
+			return x*2
+		g = lambda x: x*2</pre></span>
+		</div>	
+    </div>
+ <!--	NEXT PART -->
+ 
+	<div id="Class-1" class="step slide4" data-x="-7500" data-y="4000" data-z = "-5000" data-rotate-z="180">
+       <div class="slide-header2">Object Oriented Programming </div>
+	   <div class="slide-content">
+	   <p>Python supports many different kinds of data.</p>
+	   <p> Objects have:</p>
+	   <li class="tab"> A type (a particular object is said to be an instance of a type) </li>
+	   <li class="tab"> An internal data representation (primitive or composite) </li>	
+	   <li class="tab"> A set of procedures for interaction with the object </li>
+	   <p>In OOP, Everything is an object and has a type. It will help in data obstraction. </p>
+		</div>
+    </div>
+	<div id="Class-2" class="step slide4" data-x="-6500" data-y="4000" data-z = "-5000" data-rotate-z="180">
+       <div class="slide-header2">New Types </div>
+	   <div class="slide-content">
+	   <p>In Python, the <i>class</i> statement is used to define a new type.</p>
+	   <span style="font-size: 25px">
+		<pre class="brush: py;">
+		class Coordinate(object):
+			… define attributes here</pre></span>
+		<p> Classes can inherit attributes from other classes </p>
+		<p> __init__ method provides a way to add some initial values: </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		class Coordinate(object):
+			def __init__(self, x, y):
+				self.x = x
+				self.y = y</pre></span>
+		<p> <i>self</i> is the name of the passed object by the Python. </p>
+		<p> The “.” operator is used to access an attribute of an object </p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		#creating an instance
+		origin = Coordinate(0,0)</pre></span>
+		</div>
+    </div>
+	<div id="Class-3" class="step slide4" data-x="-5500" data-y="4000" data-z = "-5000" data-rotate-z="180">
+       <div class="slide-header2">Methods in Types </div>
+	   <div class="slide-content">
+	   <p>Left to its own devices, Python uses a unique but uninformative print presentation for an object</p>
+	   <span style="font-size: 25px">
+		<pre class="brush: py;">
+		>>> print c
+		<__main__.Coordinate object at 0x7fa918510488></pre></span>
+		<p>  __str__ method for a class will be called when it needs a string to print.</p>
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		class Coordinate(object):
+			def __init__(self, x, y):
+				self.x = x
+				self.y = y
+			def __str__(self):
+				return “<”+self.x+”,”+self.y+”>”
+		>>> print c
+		<3,4></pre></span>
+		</div>
+    </div>
+	<div id="Class-4" class="step slide4" data-x="-4500" data-y="4000" data-z = "-5000" data-rotate-z="180">
+       <div class="slide-header2">Methods in Types </div>
+	   <div class="slide-content">
+	   <p>Use methods for getting and setting values in types. Otherwise, there will be bugs.</p>
+	   <span style="font-size: 25px">
+		<pre class="brush: py;">
+		class Coordinate(object):
+			def __init__(self, x, y):
+				self.x = x
+				self.y = y
+			def __str__(self):
+				return “<”+self.x+”,”+self.y+”>”
+			def get(self):
+				return (self.x, self.y)
+			def set(self, e):
+				self.x = e[0]
+				self.y = e[1]</pre></span>
+		</div>
+    </div>
+	<div id="Lib-1" class="step slide4" data-x="-4500" data-y="3000" data-z = "-5000" data-rotate-z="180">
+       <div class="slide-header2">Python Libraries </div>
+	   <div class="slide-content">
+	   <p>Python has plenty of Open-source libraries:</p>
+	   <li class="tab"> <i>Numpy</i>: adds vectors, matrices, and many high-level mathematical functions </li>
+	   <li class="tab"> <i>Scipy</i>: adds mathematical classes and functions useful to scientists </li>	
+	   <li class="tab"> <i>MatPlotLib</i>: adds an object-oriented API for plotting  </li>
+	   <li class="tab"> <i>PyLab</i>: combines the other libraries to provide a MATLAB-like interface</li> 
+	   <center><img src="Logo-4.png" height = "200" align="middle"></center>
+		</div>
+    </div>
+    <div id="Lib-2" class="step slide4" data-x="-5500" data-y="3000" data-z = "-5000" data-rotate-z="180">
+       <div class="slide-header2"> Creating Plots </div>
+	   <div class="slide-content">
+	   <p> pylab must be imported before use. </p>
+	   <p>Plots can be created by pylab.plot </p>
+	   <li class="tab"> The first two arguments to pylab.plot must be sequences of the same length.</li>
+	   <li class="tab"> First argument gives x-coordinates. </li> 
+	   <li class="tab"> Second argument gives y-coordinates. </li>
+	   <li style="tab"> Points plotted in order. As each point is plotted, a line is drawn connecting it to the previous point.</li>
+	   </div>
+    </div>
+	
+	<div id="Lib-3" class="step slide4" data-x="-6500" data-y="3000" data-z="-5000" data-rotate-z="180">
+        <div class="slide-header2"> An Example of Plot </div>
+		<div class="slide-content">
+		<span style="font-size: 25px">
+		<pre class="brush: py;">
+		pylab.figure(Temperature) 
+		pylab.title('Monthly Temperature of City) 
+		pylab.xlabel('Months') 
+		pylab.ylabel('Temperature (C)')
+		pylab.legend(loc = 'best')
+		pylab.plot(M, T)
+		pylab.show()</pre></span> 
+		<p> Also, <i>pylab.hist()</i> will make histograms! </p>
+		</div>
+    </div>
+
+	<div id="Lib-4" class="step slide4" data-x="-7500" data-y="3000" data-z="-5000" data-rotate-z="180">
+		<div class="slide-header2"> Random Number </div>
+		<div class="slide-content">
+		<p> random.py will generate suedo-random numbers! </p>
+		<li class = "tab"><i>random.seed([x])</i>: Initialize the basic random number generator.</li>
+		<li class = "tab"><i>random.randint(a, b)</i>: Return a random integer N such that <b>a<=N<=b</b>.</li>
+		<li class = "tab"><i>random.choice(seq)</i>: Return a random element from the non-empty sequence seq.</li>
+		<li class = "tab"><i>random.random()</i>: Return the next random floating point number in the range <b>[0.0, 1.0)</b>.</li>
+		<li class = "tab"><i>random.uniform(a, b)</i>: Return a random floating point number N such that <b>a<=N<=b </b>for <b>a<=b</b> and <b>b<=N<=a</b> for <b>b< a</b>.</li>
+		</div>
+    </div>
+	<div id="Lib-5" class="step slide4" data-x="-7500" data-y="2000" data-z="-5000" data-rotate-z="180">
+	<div class="slide-header2"> Scientific Computing </div>
+	<div class="slide-content">
+	<p> NumPy is the fundamental package for scientific computing with Python. It contains: </p>
+	<li class="tab">a powerful N-dimensional array object</li>
+	<li class="tab">sophisticated (broadcasting) functions</li>
+	<li class="tab">tools for integrating C/C++ and Fortran code</li>
+	<li class="tab">useful linear algebra, Fourier transform, and random number capabilities</li>
+	</div>
+	</div>	
+	<div id="Lib-6" class="step slide4" data-x="-6500" data-y="2000" data-z="-5000" data-rotate-z="180">
+	<div class="slide-header2"> Numpy Capabilities</div>
+	<div class="slide-content">
+	<li class="tab"><i>ndarray</i>: is a (usually fixed-size) multidimensional container of items of the same type and size. </i> </li>
+	<span style="font-size: 25px">
+	<pre class="brush: py;">
+	import numpy as np
+	x = np.array([[1, 2, 3], [4, 5, 6]])</pre></span> 
+	<li class="tab"><i>numpy.matrix[source]</i>: Returns a matrix from an array-like object, or from a string of data. A matrix is a specialized 2-D array.  It has certain special operators, such as * (matrix multiplication) and ** (matrix power). </i> </li>
+	<span style="font-size: 25px">
+	<pre class="brush: py;">
+	a = np.matrix('1 2; 3 4')
+	np.matrix([[1, 2], [3, 4]])</pre></span> 
+	</div>
+	</div>
+	<div id="Lib-7" class="step slide4" data-x="-5500" data-y="2000" data-z="-5000" data-rotate-z="180">
+	<div class="slide-header2"> Numpy Capabilities</div>
+	<div class="slide-content">
+	<p><i>numpy.linalg</i>: is a comprehensive set of Python methods for algebrical operations. </p>
+	<li class="tab"><i>linalg.dot[a, b]</i>: Dot product of two arrays. </li>
+	<li class="tab"><i>linalg.cholesky(a)</i>: Cholesky decomposition. </li>
+	<li class="tab"><i>linalg.svd(a[, full_matrices, compute_uv])</i>: Singular Value Decomposition.. </li>
+	<li class="tab"><i>linalg.eig(a)</i>: Compute the eigenvalues and right eigenvectors of a square array. </li>
+	<li class="tab"><i>linalg.solve(a, b)</i>: Solve a linear matrix equation, or system of linear scalar equations. </li>
+	<li class="tab"><i>linalg.inv(a)</i>: Compute the (multiplicative) inverse of a matrix. </li>
+	<span style="font-size: 25px">
+	<pre class="brush: py;">
+	a = np.matrix('1 2; 3 4')
+	np.matrix([[1, 2], [3, 4]])</pre></span> 
+	</div>
+	</div>
+	<div id="Lib-8" class="step slide4" data-x="-4500" data-y="2000" data-z="-5000" data-rotate-z="180">
+		<div class="slide-header2"> Pylab </div>
+		<div class="slide-content">
+		<p> At the moment, the current combination of <i>Python</i>, <i>NumPy</i>, <i>SciPy</i>, <i>Matplotlib</i>, and <i>IPython</i> provide a compelling environment for numerical analysis and computation.
+		<p> Pylab will bring all of these environments in one place. </p>
+		<p> For example, polyfit which is a function in pylab will fit a polynominal of degree n to the correspondant values. </p>
+		<p><b>pylab.polyfit(xvals, yvals, degree)</b> </p>
+		</div>
+    </div>
+	
+    <!--
+        
+        This is an example of step element being scaled.
+        
+        Again, we use a `data-` attribute, this time it's `data-scale="4"`, so it means that this
+        element will be 4 times larger than the others.
+        From presentation and transitions point of view it means, that it will have to be scaled
+        down (4 times) to make it back to its correct size.
+        
+    
+    <div id="Plastic" class="step" data-x="0" data-y="0" data-scale="4" align = "center">
+        <q>BUT if not:</q>
+        <p style="font-size:100px">Return Mapping</p>
+    </div>
+
+        
+        This element introduces rotation.
+        
+        Notation shouldn't be a surprise. We use `data-rotate="90"` attribute, meaning that this
+        element should be rotated by 90 degrees clockwise.
+        
+    -->
+
+    <!--
+        
+        This step here doesn't introduce anything new when it comes to data attributes, but you
+        should notice in the demo that some words of this text are being animated.
+        It's a very basic CSS transition that is applied to the elements when this step element is
+        reached.
+        
+        At the very beginning of the presentation all step elements are given the class of `future`.
+        It means that they haven't been visited yet.
+        
+        When the presentation moves to given step `future` is changed to `present` class name.
+        That's how animation on this step works - text moves when the step has `present` class.
+        
+        Finally when the step is left the `present` class is removed from the element and `past`
+        class is added.
+        
+        So basically every step element has one of three classes: `future`, `present` and `past`.
+        Only one current step has the `present` class.
+        
+    -->
+    <!--
+        
+        And the last one shows full power and flexibility of impress.js.
+        
+        You can not only position element in 3D, but also rotate it around any axis.
+        So this one here will get rotated by -40 degrees (40 degrees anticlockwise) around X axis and
+        10 degrees (clockwise) around Y axis.
+        
+        You can of course rotate it around Z axis with `data-rotate-z` - it has exactly the same effect
+        as `data-rotate` (these two are basically aliases).
+        
+    -->
+    
+	
+
+
+    <!--
+        
+        So to summarize of all the possible attributes used to position presentation steps, we have:
+        
+        * `data-x`, `data-y`, `data-z` - they define the position of **the center** of step element on
+            the canvas in pixels; their default value is 0;
+        * `data-rotate-x`, `data-rotate-y`, 'data-rotate-z`, `data-rotate` - they define the rotation of
+            the element around given axis in degrees; their default value is 0; `data-rotate` and `data-rotate-z`
+            are exactly the same;
+        * `data-scale` - defines the scale of step element; default value is 1
+        
+        These values are used by impress.js in CSS transformation functions, so for more information consult
+        CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
+        
+    -->
+    <div id="overview" class="step" data-x="0" data-y="0" data-scale="10">
+    </div>
+</div>
+
+<!--
+    
+    Hint is not related to impress.js in any way.
+    
+    But it can show you how to use impress.js features in creative way.
+    
+    When the presentation step is shown (selected) its element gets the class of "active" and the body element
+    gets the class based on active step id `impress-on-ID` (where ID is the step's id)... It may not be
+    so clear because of all these "ids" in previous sentence, so for example when the first step (the one with
+    the id of `bored`) is active, body element gets a class of `impress-on-bored`.
+    
+    This class is used by this hint below. Check CSS file to see how it's shown with delayed CSS animation when
+    the first step of presentation is visible for a couple of seconds.
+    
+    ...
+    
+    And when it comes to this piece of JavaScript below ... kids, don't do this at home ;)
+    It's just a quick and dirty workaround to get different hint text for touch devices.
+    In a real world it should be at least placed in separate JS file ... and the touch content should be
+    probably just hidden somewhere in HTML - not hard-coded in the script.
+    
+    Just sayin' ;)
+    
+-->
+<div class="hint">
+    <p>Python Workshop By Shayan Fahimi</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Plasticity Project: Shayan Fahimi</p>";
+}
+</script>
+
+<!--
+    
+    Last, but not least.
+    
+    To make all described above really work, you need to include impress.js in the page.
+    I strongly encourage to minify it first.
+    
+    In here I just include full source of the script to make it more readable.
+    
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. Not only because it's a good practice, but also
+    because it should be done when the whole document is ready.
+    Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
+    
+-->
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+<!--
+    
+    The `impress()` function also gives you access to the API that controls the presentation.
+    
+    Just store the result of the call:
+    
+        var api = impress();
+    
+    and you will get three functions you can call:
+    
+        `api.init()` - initializes the presentation,
+        `api.next()` - moves to next step of the presentation,
+        `api.prev()` - moves to previous step of the presentation,
+        `api.goto( idx | id | element, [duration] )` - moves the presentation to the step given by its index number
+                id or the DOM element; second parameter can be used to define duration of the transition in ms,
+                but it's optional - if not provided default transition duration for the presentation will be used.
+    
+    You can also simply call `impress()` again to get the API, so `impress().next()` is also allowed.
+    Don't worry, it wont initialize the presentation again.
+    
+    For some example uses of this API check the last part of the source of impress.js where the API
+    is used in event handlers.
+    
+-->
+
+</body>
+</html>
+
+<!--
+    
+    Now you know more or less everything you need to build your first impress.js presentation, but before
+    you start...
+    
+    Oh, you've already cloned the code from GitHub?
+    
+    You have it open in text editor?
+    
+    Stop right there!
+    
+    That's not how you create awesome presentations. This is only a code. Implementation of the idea that
+    first needs to grow in your mind.
+    
+    So if you want to build great presentation take a pencil and piece of paper. And turn off the computer.
+    
+    Sketch, draw and write. Brainstorm your ideas on a paper. Try to build a mind-map of what you'd like
+    to present. It will get you closer and closer to the layout you'll build later with impress.js.
+    
+    Get back to the code only when you have your presentation ready on a paper. It doesn't make sense to do
+    it earlier, because you'll only waste your time fighting with positioning of useless points.
+    
+    If you think I'm crazy, please put your hands on a book called "Presentation Zen". It's all about 
+    creating awesome and engaging presentations.
+    
+    Think about it. 'Cause impress.js may not help you, if you have nothing interesting to say.
+    
+-->
+
+<!--
+    
+    Are you still reading this?
+    
+    For real?
+    
+    I'm impressed! Feel free to let me know that you got that far (I'm @bartaz on Twitter), 'cause I'd like
+    to congratulate you personally :)
+    
+    But you don't have to do it now. Take my advice and take some time off. Make yourself a cup of coffee, tea,
+    or anything you like to drink. And raise a glass for me ;)
+    
+    Cheers!
+    
+-->
+
